@@ -21,12 +21,19 @@
 #define OPERATIONAL_MODE             WIFI //   WIFI, Or use ETHERNET_W5100 or ETHERNET_W5500                                 <-Req'd
 
 // SERIAL PORTS --------------------------------------------------------------------------------------------------------------------
-#define SERIAL_BAUD_DEFAULT          9600 //   9600, Common baud rates for this parameter are 9600,19200,57600,115200,etc.    Infreq
+#define SERIAL_BAUD_DEFAULT        230400 //   9600, Common baud rates for this parameter are 9600,19200,57600,115200,etc.    Infreq
                                           //         The OnStep serial port this is wired to must use the same rate above.
-#define SERIAL_BAUD                115200 // 115200, Or use 19200,57600,115200,230400,460800 (not all devices support > 115200)
+#define SERIAL_BAUD                230400 // 115200, Or use 19200,57600,115200,230400,460800 (not all devices support > 115200)
                                           //         (OnStep and here.)  Automatically uses 19200 if talking to a Mega2560 OnStep.
-#define SERIAL_SWAP                  AUTO //   AUTO, Automatic check both, ON for swapped port or OFF for default port only.  Infreq
+#define SERIAL_SWAP                  ON   //   AUTO, Automatic check both, ON for alternate port or OFF for default port only.  Often
                                           //         this option is ignored in ETHERNET modes
+                                          //         dbc: You will always need this for any ESP32 module with a USB adapter onboard.
+                                          //         dbc: SERIAL_SWAP has effect in Cmd.cpp where it causes
+                                          //              SERIAL_SWAPPED_RX and SERIAL_SWAPPED_TX pins to be used instead of the defaults,
+                                          //              which are usually connected to the USB adapter.
+                                          //              In Pins.Esp32.h they are conditionally defined TX = 5, RX = 23 so we have to override them here.
+#define SERIAL_SWAPPED_RX           16    //         RX2 on ESP32-WROOM-32U, -32D and others.  See also HardwareSerial.h
+#define SERIAL_SWAPPED_TX           17    //         TX2 on ESP32-WROOM-32U, -32D and others
 
 // STATUS LED ----------------------------------------------------------------------------------------------------------------------
 #define LED_STATUS                     ON //     ON, Enable LED flashes while connecting then steady once connected.          Infreq
