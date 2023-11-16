@@ -2,3 +2,4 @@ esp32.svd
 debug.cfg
 debug.svd
 creds.h
+c_cpp_properties.json
