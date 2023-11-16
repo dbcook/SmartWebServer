@@ -1,5 +1,4 @@
-
-*.json
 esp32.svd
 debug.cfg
 debug.svd
+creds.h
