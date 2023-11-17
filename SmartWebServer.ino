@@ -135,7 +135,15 @@ Again:
 
   // look for OnStep
   VLF("MSG: Attempting to contact OnStep");
-  SERIAL_ONSTEP.print(":GVP#"); delay(100);
+  
+  // protocol issues here?  It works but...
+  //  * Has a fixed duration blocking delay to receive the response
+  //  * Goto could easily be restructured as retry-with-break flow
+  //  * Partly-configurable if-else code for port and baud rate searching
+  //      Why not go fully general and have a list of port/baud tuples to try?
+
+  SERIAL_ONSTEP.print(":GVP#"); 
+  delay(100);
   String s = SERIAL_ONSTEP.readString();
   if (s == "On-Step#") {
     // if there is more than one baud rate specified
