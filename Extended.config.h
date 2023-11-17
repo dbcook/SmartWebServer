@@ -4,6 +4,10 @@
 //                                 *** Most users will not change anything in this file! ***
 
 // ---------------------------------------------------------------------------------------------------------------------------------
+
+// Credentials and SSIDs have been removed from this file
+#include "creds.h"
+
 // ADJUST THE FOLLOWING TO CONFIGURE YOUR CONTROLLER FEATURES ----------------------------------------------------------------------
 // <-Req'd = always must set, <-Often = usually must set, Option = optional, Adjust = adjust as req'd, Infreq = infrequently changed
 
@@ -29,8 +33,9 @@
 #define LED_STATUS_ON_STATE           LOW //         LOW, Use HIGH so indicator stays on when connected if needed.            Option
 
 // PASSWORD ------------------------------------------------------------------------------------------------------------------------
-#define PASSWORD_DEFAULT       "password" //  "password", Adjust as required, this can be changed at runtime also.            Adjust
+//#define PASSWORD_DEFAULT       "something" //  "password", Adjust as required, this can be changed at runtime also.            Adjust
                                           //              password for runtime access to network settings.
+                                          //              provide this in creds.h
 
 // BLE GAMEPAD SETTINGS (ESP32 ONLY) ------------------------------------------------ see https://onstep.groups.io/g/main/wiki/26762
 #define BLE_GAMEPAD                   OFF //         OFF, ON to allow BLE gamepad connection for ESP32 only.                  Option
@@ -48,17 +53,17 @@
 // These settings are stored in NV (EEPROM) and the SWS will not recognize the settings below except on the first upload unless
 // NV is wiped, these settings (where applicable) can be changed at runtime however.
 #define AP_ENABLED                   true //        true, Wifi Access Point Enabled.                                          Adjust
-#define AP_SSID               "ONSTEPdbc" //    "ONSTEP", Wifi Access Point SSID.                                             Adjust
-#define AP_PASSWORD           "Cave8BDlx" //  "password", Wifi Access Point password.                                         Adjust
 #define AP_CHANNEL                      7 //           7, Wifi Access Point channel.                                          Adjust
+//define AP_SSID              "something" //              Wifi Access Point SSID (provide in creds.h)                         creds.h
+//define AP_PASSWORD          "something" //              Wifi Access Point password (provide in creds.h)                     creds.h
 #define AP_IP_ADDR          {192,168,0,1} // ..,168,0,1}, Wifi Access Point IP Address.                                       Adjust
 #define AP_GW_ADDR          {192,168,0,1} // ..,168,0,1}, Wifi Access Point GATEWAY Address.                                  Adjust
 #define AP_SN_MASK        {255,255,255,0} // ..55,255,0}, Wifi Access Point SUBNET Mask.                                      Adjust
 
 #define STA_ENABLED                 false //       false, Wifi Station Enabled.                                               Adjust
-#define STA_SSID                   "Home" //      "Home", Wifi Station SSID to connnect to.                                   Adjust
-#define STA_PASSWORD          "Cave8BDlx" //  "password", Wifi Station mode password.                                         Adjust
-#define STA_DHCP_ENABLED            false //       false, Wifi Station/Ethernet DHCP Enabled.                                 Adjust
+//#define STA_SSID            "something" //              WiFi Station mode SSID  (provide in creds.h)                        creds.h
+//#define STA_PASSWORD        "something" //              WiFi Station mode password (provide in creds.h)                     creds.h
+#define STA_DHCP_ENABLED            true  //       false, Wifi Station/Ethernet DHCP Enabled.                                 Adjust
 #define STA_IP_ADDR        {192,168,1,55} // ..168,1,55}, Wifi Station/Ethernet IP Address.                                   Adjust
 #define STA_GW_ADDR         {192,168,1,1} // ..,168,1,1}, Wifi Station/Ethernet GATEWAY Address.                              Adjust
 #define STA_SN_MASK       {255,255,255,0} // ..55,255,0}, Wifi Station/Ethernet SUBNET Mask.                                  Adjust
