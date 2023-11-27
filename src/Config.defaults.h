@@ -8,6 +8,16 @@
 #endif
 
 // Wifi related
+#if OPERATIONAL_MODE == WIFI
+#ifndef MDNS_SERVER
+#define MDNS_SERVER                  ON
+#endif
+#endif
+
+#ifndef MDNS_NAME
+#define MDNS_NAME                    "onstep" // mDNS device name
+#endif
+
 #ifndef STA_AP_FALLBACK
 #define STA_AP_FALLBACK               true    // activate SoftAP if station fails to connect
 #endif

@@ -47,6 +47,8 @@
 
 // IP ADDRESS SETTINGS -------------------------------------------------------------------------------------------------------------
 
+#define MDNS_NAME                "onstep" //   "onstep",  mDNS device name.                                                   Adjust
+
 // The unique (Ethernet) MAC address for your SWS
 #define MAC {0xDE,0xAD,0xBE,0xEF,0xFE,0xEE}
 
