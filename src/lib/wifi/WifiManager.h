@@ -30,8 +30,8 @@
 #endif
 
 typedef struct AccessPointSettings {
-  char ssid[32];
-  char pwd[32];
+  char ssid[32];   // BUG: 802.11 says SSID may be up to 32 octets.  This code uses null terminated strings and thus only allows 31 octet string length.
+  char pwd[32];    // BUG: spec noncompliant.  WEP allows max 16 chars, WPAx-PSK allows 63 ascii encoded chars.
   unsigned char channel;
   uint8_t ip[4];
   uint8_t gw[4];
@@ -40,8 +40,8 @@ typedef struct AccessPointSettings {
 
 typedef struct StationSettings {
   char host[32];
-  char ssid[32];
-  char pwd[32];
+  char ssid[32];   // *** 802.11 noncompliant. Length needs to be 33 to permit 32 octet SSID as null-term string.
+  char pwd[32];    // *** 802.11 noncompliant.  WPA-PSK and WPA2-PSK allow up to 63 ascii-encoded chars.
   bool dhcpEnabled;
   uint8_t target[4];
   uint8_t ip[4];
@@ -50,9 +50,9 @@ typedef struct StationSettings {
 } StationSettings;
 
 #define WifiStationCount 3
-#define WifiSettingsSize 451
+#define WifiSettingsSize 451    // *** hardcoded struct size
 typedef struct WifiSettings {
-  char masterPassword[32];
+  char masterPassword[32];      // *** should be longer?
 
   bool accessPointEnabled;
   AccessPointSettings ap;
