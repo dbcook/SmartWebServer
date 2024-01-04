@@ -50,7 +50,7 @@ typedef struct StationSettings {
 } StationSettings;
 
 #define WifiStationCount 3
-#define WifiSettingsSize 451    // *** hardcoded struct size
+#define WifiSettingsSize 451    // *** hardcoded struct size, but only used as the expected value for a check to see if sizeof(WifiSettings) has grown.
 typedef struct WifiSettings {
   char masterPassword[32];      // *** should be longer?
 
